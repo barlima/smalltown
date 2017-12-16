@@ -20,6 +20,12 @@ $gray-medium-light: #eaeaea;
   }
 }
 
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: darkgreen;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
