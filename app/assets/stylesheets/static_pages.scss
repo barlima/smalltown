@@ -72,5 +72,21 @@ footer {
 /* home */
 
 .jumbotron {
-  //background: url("/sydney_background.jpeg");
+  background-image: url("sydney_background.jpeg");
+  margin-top: 10px;
+
+  h1 {
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+  }
+
+  .btn-lg {
+    background-color: darkgreen;
+
+    &:hover {
+      background-color: orangered;
+      border: 1px solid orangered;
+      box-shadow: 0 0 1em black;
+    }
+  }
 }
