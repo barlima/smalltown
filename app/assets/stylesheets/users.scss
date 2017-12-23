@@ -1,5 +1,7 @@
 /* sidebar */
 
+$green: #008000;
+
 aside {
   section.user_info {
     margin-top: 20px;
@@ -35,4 +37,39 @@ aside {
 .gravatar_edit {
   margin-top: 15px;
   height: 100px;
+}
+
+// Sign up panel
+
+.sign-up-panel {
+  display: grid;
+  grid-template: 1fr / 2fr 3fr;
+  padding: 15px;
+}
+
+.sign-up-image {
+  position: relative;
+}
+
+.sign-up-image  img{
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 49px;
+  position: absolute;
+}
+
+.new_user {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#create-account-button {
+  background-color: darkgreen;
+  border: 1px solid darkgreen;
+
+  &:hover {
+    background-color: $green;
+    border: 1px solid $green;
+    box-shadow: 0 0 1em grey;
+  }
 }

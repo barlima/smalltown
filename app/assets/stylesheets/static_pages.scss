@@ -4,18 +4,19 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$green: #008000;
 
 /* header */
 
 .navbar {
-  background: darkgreen;
-  border-bottom: 2px solid orangered;
+  background: $green;
+  border-bottom: 2px solid darkgreen;
 }
 
 .navbar-inverse .navbar-nav > li > a {
   color: #fff;
   &:hover {
-    background-color: orangered;
+    background-color: darkgreen;
     //color: darkgreen;
   }
 }

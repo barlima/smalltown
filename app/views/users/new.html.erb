@@ -1,8 +1,15 @@
 <% provide(:title, 'Sign up') %>
 <% provide(:button_text, 'Create my account') %>
-<h1>Sign up</h1>
+
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render 'form' %>
+  <!--<div class="col-md-6 col-md-offset-3">-->
+  <div class=" sign-up-panel">
+    <div class="sign-up-form">
+      <h1>Sign up</h1>
+      <%= render 'form' %>
+    </div>
+    <div class='sign-up-image'>
+      <%= image_tag('sydney.png', :alt => 'sydney.png' ) %>
+    </div>
   </div>
 </div>
