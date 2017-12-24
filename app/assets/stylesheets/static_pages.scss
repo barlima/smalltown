@@ -73,6 +73,7 @@ footer {
 
 .jumbotron {
   background-image: url("sydney_background.jpeg");
+  max-height: 450px;
   margin-top: 10px;
 
   h1 {
@@ -80,13 +81,34 @@ footer {
     text-shadow: 2px 2px 4px #000000;
   }
 
-  .btn-lg {
-    background-color: darkgreen;
+  .vignette {
+    margin-top: 6%;
+    margin-bottom: 6%;
+    margin-right: auto;
+    margin-left: auto;
+    width: 40%;
+    min-width: 200px;
+    position: relative;
+    background-color: rgba(128,128,128,0.5);
+    border-radius: 16px;
 
-    &:hover {
-      background-color: orangered;
-      border: 1px solid orangered;
-      box-shadow: 0 0 1em black;
+
+    h2 {
+      padding-top: 30px;
+      position: center;
+      color: white;
+      text-shadow: 2px 2px 4px #000000;
+    }
+
+    .btn-lg {
+      background-color: darkgreen;
+      margin-bottom: 30px;
+
+      &:hover {
+        background-color: orangered;
+        border: 1px solid orangered;
+        box-shadow: 0 0 1em black;
+      }
     }
   }
 }
