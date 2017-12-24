@@ -1,7 +1,7 @@
 <% provide(:title, "Log in") %>
 
 <div class="row">
-  <div class="log-in-panel">
+  <div class="form-panel">
     <div class="log-in-form">
       <h1>Log in</h1>
       <%= form_for(:session, url: login_path) do |f| %>
@@ -18,13 +18,13 @@
           <span>Remember me on this computer</span>
         <% end %>
 
-        <%= f.submit "Log in", class: "btn btn-primary", id: "log-in-button" %>
+        <%= f.submit "Log in", class: "btn btn-primary", id: "green-button" %>
       <% end %>
 
-      <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+      <p>New user? <%= link_to "Sign up now!" %></p>
     </div>
-    <div class="log-in-image">
-      <%= image_tag('moscow.png', :alt => 'moscow.png', :width => 400 ) %>
+    <div class="form-image">
+      <%= image_tag('moscow.png', :alt => 'moscow.png', :id => 'moscow-image' ) %>
     </div>
   </div>
 </div>
