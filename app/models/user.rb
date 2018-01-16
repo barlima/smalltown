@@ -26,6 +26,10 @@ class User < ApplicationRecord
 
   before_save :email_to_lowercase
 
+  # Relations
+
+  has_many :trips, dependent: :destroy
+
 
   # User methods
 

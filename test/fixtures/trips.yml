@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 'Test1'
+  start_date: 2018-01-02 19:53:18
+  end_date: 2018-01-02 19:53:18
+  user: michael
+  created_at: <%= 10.minutes.ago %>
+
+two:
+  name: 'Test2'
+  start_date: 2018-01-02 19:53:18
+  end_date: 2018-01-02 19:53:18
+  user: archer
+  created_at: <%= 3.minutes.ago %>

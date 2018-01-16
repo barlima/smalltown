@@ -1,0 +1,15 @@
+<% provide(:title, 'Your trips') %>
+
+<div class="row">
+  <div class="index-new-trip">
+    <p>Ready for more adventures?</p>
+    <%= button_to 'New Trip', trips_new_path, method: 'get', class: "btn btn-primary", id: "green-button" %>
+  </div>
+  <div>
+    <% if @trips.empty? %>
+      Your trips will be displayed here
+    <% else %>
+      You have no trips :(
+    <% end %>
+  </div>
+</div>
