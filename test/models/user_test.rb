@@ -75,4 +75,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?(:remember, '')
   end
 
+  test "associated trips should be destroyed" do
+    @user.save
+    @user.trips.create!(name: "My trip", start_date: DateTime.now, end_date: DateTime.now + 2)
+    assert_difference 'Trip.count', -1 do
+      @user.destroy
+    end
+  end
+
 end

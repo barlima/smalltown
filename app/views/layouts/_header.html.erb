@@ -15,6 +15,9 @@
               <li><%= link_to "Profile", current_user %></li>
               <li><%= link_to "Settings", edit_user_path(current_user) %></li>
               <li class="divider"></li>
+              <li><%= link_to "My trips", trips_path %></li>
+              <li><%= link_to "New trip", trips_new_path %></li>
+              <li class="divider"></li>
               <li>
                 <%= link_to "Log out", logout_path, method: :delete %>
               </li>

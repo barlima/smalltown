@@ -34,6 +34,10 @@ textarea {
   }
 }
 
+.inline {
+  display: inline;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -154,6 +158,12 @@ input {
   left: 20%;
 }
 
+#brest-image {
+  width: 70%;
+  bottom: 64px;
+  left: 15%;
+}
+
 .new_user {
   padding-left: 50px;
   padding-right: 50px;
@@ -163,6 +173,20 @@ input {
   padding-bottom: 30px;
   background-color: lightgrey;
   border-radius: 24px 0 0 24px;
+}
+
+.edit-form {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#new_trip {
+  padding-left: 50px;
+  padding-right: 50px;
+
+  input#green-button {
+    margin-top: 15px;
+  }
 }
 
 #green-button {

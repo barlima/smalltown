@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
-
-  get 'password_resets/edit'
-
-  get 'sessions/new'
+  get 'trips/new'
+  get 'trips/edit'
 
   root 'static_pages#home'
+
+  get 'sessions/new'
 
   get '/home',    to:   'static_pages#home'
   get '/help',    to:   'static_pages#help'
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   resources :users
+  resources :trips
   resources :password_resets,     only: [:new, :create, :edit, :update]
 
 end
