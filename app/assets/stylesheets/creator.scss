@@ -1,0 +1,21 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.new-point {
+  display: grid;
+  grid-template: 1fr / 2fr 1fr;
+}
+
+.new-point-form {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.map {
+  background-color: green;
+}
+
+#map {
+  position: relative;
+  width: 100%;
+}

@@ -1,0 +1,28 @@
+<%= form_for(@new_point) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= hidden_field_tag :user_id, @user.id %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :longitude %>
+  <%= f.text_field :longitude, class: 'form-control' %>
+
+  <%= f.label :latitude %>
+  <%= f.text_field :latitude, class: 'form-control' %>
+
+  <%= f.label :category %>
+  <%= f.text_field :category, class: 'form-control' %>
+
+  <%= f.label :minimum_time_to_spend %>
+  <%= f.text_field :avg_time_min, class: 'form-control' %>
+
+  <%= f.label :maximum_time_to_spend %>
+  <%= f.text_field :avg_time_max, class: 'form-control' %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, class: 'form-control' %>
+
+  <%= f.submit "Create", class: "btn btn-primary", id: "green-button" %>
+<% end %>

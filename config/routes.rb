@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'trips/new'
   get 'trips/edit'
 
@@ -18,8 +19,11 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
+  post   '/points',  to: 'creator#create'
+
   resources :users
   resources :trips
   resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :creator,             only: [:index, :edit]
 
 end
