@@ -12,4 +12,9 @@ class Point < ApplicationRecord
   # validates :created_by_user_id, presence: true
   validates :category, presence: true
 
+  # Accessors
+
+  # attr_accessor :latitude
+  # attr_accessor :longitude
+
 end

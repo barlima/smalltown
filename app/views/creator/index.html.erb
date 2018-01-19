@@ -2,7 +2,6 @@
 
 <div class="row">
   <h1>Add new, interesting places</h1>
-
   <div class="new-point margin-15">
     <div id="map" class="map">
     </div>
@@ -11,13 +10,17 @@
     </div>
   </div>
   <% if @points.any? %>
-    <table>
+    <table class="points-table">
       <tr>
         <th>Name</th>
         <th>Longitude</th>
         <th>Latitude</th>
         <th>Category</th>
         <th>Rating</th>
+        <th>Show on map
+        <label class="checkbox-inline">
+          <%= check_box_tag("show-on-map-all")%>
+        </label></th>
       </tr>
 
       <% @points.each do |point| %>
@@ -27,6 +30,7 @@
           <td><%= point.latitude %></td>
           <td><%= point.category %></td>
           <td><%= point.rating %></td>
+          <td><%= check_box_tag('show_on_map', point.id)%></td>
         </tr>
       <% end %>
 
@@ -36,9 +40,8 @@
 </div>
 
 <script type="text/javascript">
-    <!-- ToDo: Retreive the data from the last point -->
-    var starting_lng = <%= @points.last&.longitude || -71.08 %>;
-    var starting_lat = <%= @points.last&.latitude || 42.35 %>;
+    var starting_lng = <%= @points.map(&:longitude).compact.last || -71.08 %>;
+    var starting_lat = <%= @points.map(&:latitude).compact.last || 42.35 %>;
 
     var map = L.map('map').setView([starting_lat, starting_lng], 13);
     var layer = L.geoJson().addTo(map);
@@ -70,5 +73,7 @@
     }
 
     map.on('click', onMapClick);
+
+//  ToDo: show points on map when checked
 
 </script>
