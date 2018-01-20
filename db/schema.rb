@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117162946) do
+ActiveRecord::Schema.define(version: 20180117173402) do
+
+  create_table "points", force: :cascade do |t|
+    t.string "name"
+    t.string "longitude"
+    t.string "latitude"
+    t.string "category"
+    t.integer "rating"
+    t.float "avg_time_min"
+    t.float "avg_time_max"
+    t.text "description"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_points_on_user_id"
+  end
 
   create_table "trips", force: :cascade do |t|
     t.string "name"
@@ -33,7 +48,7 @@ ActiveRecord::Schema.define(version: 20180117162946) do
     t.boolean "admin", default: false
     t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.boolean "creator"
+    t.boolean "creator", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

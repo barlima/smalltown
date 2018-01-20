@@ -47,6 +47,26 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def creator
+    @user = User.find(params[:id])
+    if @user.update_attribute(:creator, true)
+      flash[:success] = 'User updated'
+    else
+      flash[:danger] = 'Cannot update selected user'
+    end
+    redirect_to users_path
+  end
+
+  def admin
+    @user = User.find(params[:id])
+    if @user.update_attribute(:admin, true)
+      flash[:success] = 'User updated'
+    else
+      flash[:danger] = 'Cannot update selected user'
+    end
+    redirect_to users_path
+  end
+
   private
 
   def user_params

@@ -1,0 +1,60 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$gray-medium-light: #eaeaea;
+$green: #008000;
+
+.new-point {
+  display: grid;
+  grid-template: 1fr / 2fr 1fr;
+  margin-bottom: 50px !important;
+}
+
+.new-point-form {
+  padding-left: 50px;
+}
+
+.map {
+  background-color: green;
+}
+
+#map {
+  position: relative;
+  width: 100%;
+}
+
+.checkbox-inline {
+
+  #show-on-map-all {
+    position: relative !important;
+  }
+}
+
+.points-table {
+  width: 90%;
+  text-align: center;
+  position: center;
+  margin-right: auto;
+  margin-left: auto;
+  border-bottom: 2px solid #f2f2f2;
+
+  th {
+    text-align: center;
+    background-color: $green;
+    color: white;
+  }
+
+  tr {
+    &:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  }
+}
+
+.row-odd {
+  background-color: #c0f4b0;
+}
+
+.row-even {
+  background-color: #d1ffc6;
+}

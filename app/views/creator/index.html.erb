@@ -1,0 +1,79 @@
+<% provide(:title, 'All users') %>
+
+<div class="row">
+  <h1>Add new, interesting places</h1>
+  <div class="new-point margin-15">
+    <div id="map" class="map">
+    </div>
+    <div class="new-point-form">
+      <%= render 'form' %>
+    </div>
+  </div>
+  <% if @points.any? %>
+    <table class="points-table">
+      <tr>
+        <th>Name</th>
+        <th>Longitude</th>
+        <th>Latitude</th>
+        <th>Category</th>
+        <th>Rating</th>
+        <th>Show on map
+        <label class="checkbox-inline">
+          <%= check_box_tag("show-on-map-all")%>
+        </label></th>
+      </tr>
+
+      <% @points.each do |point| %>
+        <tr>
+          <td><%= point.name %></td>
+          <td><%= point.longitude %></td>
+          <td><%= point.latitude %></td>
+          <td><%= point.category %></td>
+          <td><%= point.rating %></td>
+          <td><%= check_box_tag('show_on_map', point.id)%></td>
+        </tr>
+      <% end %>
+
+    </table>
+  <% end %>
+
+</div>
+
+<script type="text/javascript">
+    var starting_lng = <%= @points.map(&:longitude).compact.last || -71.08 %>;
+    var starting_lat = <%= @points.map(&:latitude).compact.last || 42.35 %>;
+
+    var map = L.map('map').setView([starting_lat, starting_lng], 13);
+    var layer = L.geoJson().addTo(map);
+
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Tiles by <a href="https://www.openstreetmap.org">OSM</a>',
+        maxZoom: 15,
+        minZoom: 3
+    }).addTo(map);
+
+    function onMapClick(e) {
+
+        var geojsonFearute ={
+            "type": "Feature",
+            "properties": {
+                "name": "Clicked"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [e.latlng.lng, e.latlng.lat]
+            }
+        };
+
+        layer.clearLayers();
+        layer.addData(geojsonFearute);
+
+        document.getElementById('point_longitude').value = e.latlng.lng;
+        document.getElementById('point_latitude').value = e.latlng.lat;
+    }
+
+    map.on('click', onMapClick);
+
+//  ToDo: show points on map when checked
+
+</script>
