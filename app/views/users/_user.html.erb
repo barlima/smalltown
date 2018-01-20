@@ -9,8 +9,8 @@
 
   <% if current_user.admin? %>
     | <%= link_to "set creator", creator_path(:id => user.id), method: :post%>
+    <!--
+    | <%= link_to "set admin", admin_path(:id => user.id), method: :post%>
+    -->
   <% end %>
-
-  | <%= link_to "set admin", admin_path(:id => user.id), method: :post%>
-
 </li>
