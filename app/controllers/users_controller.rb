@@ -42,8 +42,24 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    @user = User.find(params[:id])
+    @points = @user.points
+    @paths = @user.paths
+
+    if @points.any?
+      @points.each do |point|
+        point.update_attribute(:user_id, 1)
+      end
+    end
+
+    if @paths.any?
+      @paths.each do |path|
+        path.update_attribute(:user_id, 1)
+      end
+    end
+
+    @user.destroy
+    flash[:success] = "User deleted. All of the user paths and points have been moved to User with id: 1"
     redirect_to users_url
   end
 
