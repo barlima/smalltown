@@ -45,8 +45,6 @@ class CreatorsController < ApplicationController
     redirect_to create_paths_path
   end
 
-
-
   private
 
   def point_params
