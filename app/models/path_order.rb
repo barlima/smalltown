@@ -8,6 +8,6 @@ class PathOrder < ApplicationRecord
 
   validates :position, presence: true
   validates :path_id, presence: true
-  validates :point_id_id, presence: true
+  validates :point_id, presence: true
 
 end

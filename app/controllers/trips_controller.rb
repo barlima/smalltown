@@ -22,6 +22,7 @@ class TripsController < ApplicationController
   def create
     @trip = current_user.trips.create(trip_params)
     if @trip.save
+      # ToDo: Redirect to JS page
       redirect_to '#'
     else
       render 'new'
@@ -29,6 +30,12 @@ class TripsController < ApplicationController
   end
 
   def update
+  end
+
+  def destroy
+    Trip.find(params[:id]).destroy
+    flash[:success] = 'Your trip has been successfully removed'
+    redirect_to trips_path
   end
 
   private

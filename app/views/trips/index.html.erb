@@ -7,9 +7,33 @@
   </div>
   <div>
     <% if @trips.empty? %>
-      Your trips will be displayed here
-    <% else %>
       You have no trips :(
+    <% else %>
+      <table class="points-table">
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>From</th>
+          <th>Till</th>
+          <th></th>
+        </tr>
+          <% @trips.each do |trip| %>
+            <tr>
+              <td></td>
+              <td><%= trip.name %></td>
+              <td><%= trip.start_date.to_date %></td>
+              <td><%= trip.end_date.to_date %></td>
+              <td>
+                <%= link_to '#' do %>
+                  <i class="glyphicon glyphicon-wrench"></i>
+                <% end %>
+                <%= link_to trip_path(trip.id), method: :delete, data: {confirm: "Are you sure?"} do %>
+                  <i class="glyphicon glyphicon-remove"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+      </table>
     <% end %>
   </div>
 </div>
