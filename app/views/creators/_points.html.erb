@@ -1,43 +1,53 @@
-<% provide(:title, 'All users') %>
+<h1>Add new, interesting places</h1>
 
-<div class="row">
-  <h1>Add new, interesting places</h1>
-  <div class="new-point margin-15">
-    <div id="map" class="map">
-    </div>
-    <div class="new-point-form">
-      <%= render 'form' %>
-    </div>
+<div class="new-creator margin-15">
+  <div id="map" class="map">
   </div>
-  <% if @points.any? %>
-    <table class="points-table">
-      <tr>
-        <th>Name</th>
-        <th>Longitude</th>
-        <th>Latitude</th>
-        <th>Category</th>
-        <th>Rating</th>
-        <th>Show on map
+  <div class="new-creator-form">
+    <%= render 'points_form' %>
+  </div>
+</div>
+
+<% if @points.any? %>
+  <table class="points-table">
+    <tr>
+      <th>Name</th>
+      <th>Longitude</th>
+      <th>Latitude</th>
+      <th>Category</th>
+      <th>Rating</th>
+      <th>Show on map
         <label class="checkbox-inline">
           <%= check_box_tag("show-on-map-all")%>
-        </label></th>
-      </tr>
+        </label>
+      </th>
+      <th></th>
+    </tr>
 
-      <% @points.each do |point| %>
-        <tr>
+    <% @points.each do |point| %>
+      <tr>
+        <% if point.valid? %>
           <td><%= point.name %></td>
           <td><%= point.longitude %></td>
           <td><%= point.latitude %></td>
           <td><%= point.category %></td>
           <td><%= point.rating %></td>
           <td><%= check_box_tag('show_on_map', point.id)%></td>
-        </tr>
-      <% end %>
+          <td>
+            <!-- ToDo: Make glyphicons work -->
+            <%= link_to '#' do %>
+              <i class="glyphicon glyphicon-wrench"></i>
+            <% end %>
+            <%= link_to point_path(point.id), method: :delete, data: {confirm: "Are you sure?"} do %>
+              <i class="glyphicon glyphicon-remove"></i>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
 
-    </table>
-  <% end %>
-
-</div>
+  </table>
+<% end %>
 
 <script type="text/javascript">
     var starting_lng = <%= @points.map(&:longitude).compact.last || -71.08 %>;
@@ -48,7 +58,7 @@
 
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Tiles by <a href="https://www.openstreetmap.org">OSM</a>',
-        maxZoom: 15,
+        maxZoom: 18,
         minZoom: 3
     }).addTo(map);
 
@@ -74,6 +84,6 @@
 
     map.on('click', onMapClick);
 
-//  ToDo: show points on map when checked
+    //  ToDo: show points on map when checked
 
 </script>

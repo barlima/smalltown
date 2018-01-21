@@ -4,18 +4,19 @@
 $gray-medium-light: #eaeaea;
 $green: #008000;
 
-.new-point {
+.new-creator {
   display: grid;
   grid-template: 1fr / 2fr 1fr;
   margin-bottom: 50px !important;
 }
 
-.new-point-form {
+.new-creator-form {
   padding-left: 50px;
 }
 
 .map {
   background-color: green;
+  min-height: 500px;
 }
 
 #map {
@@ -57,4 +58,44 @@ $green: #008000;
 
 .row-even {
   background-color: #d1ffc6;
+}
+
+.buttons {
+  margin: 15px;
+  margin-bottom: 60px;
+}
+
+.point-button {
+  width: 50%;
+  display: inline;
+  float: left;
+  border-radius: 8px 0 0 8px !important;
+}
+
+.path-button {
+  width: 50%;
+  display: inline;
+  float: left;
+  border-radius: 0 8px 8px 0 !important;
+}
+
+#active {
+  border: 1px solid $green;
+  background-color: $green;
+  color: white;
+
+  &:hover {
+    background-color: darkgreen;
+  }
+}
+
+#inactive {
+  border: 1px solid $green;
+  background-color: white;
+  color: $green;
+
+  &:hover {
+    background-color: darkgreen;
+    color: white;
+  }
 }

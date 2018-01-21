@@ -1,0 +1,45 @@
+<h1>Create paths to follow</h1>
+
+<div class="new-creator margin-15">
+  <div id="map" class="map">
+  </div>
+  <div class="new-creator-form">
+    <%= render 'paths_form' %>
+  </div>
+</div>
+
+<script type="text/javascript">
+    var map = L.map('map').setView([47.47, 6.28], 4);
+    var layer = L.geoJson().addTo(map);
+
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Tiles by <a href="https://www.openstreetmap.org">OSM</a>',
+        maxZoom: 15,
+        minZoom: 1
+    }).addTo(map);
+
+    function onMapClick(e) {
+
+        var geojsonFearute ={
+            "type": "Feature",
+            "properties": {
+                "name": "Clicked"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [e.latlng.lng, e.latlng.lat]
+            }
+        };
+
+        layer.clearLayers();
+        layer.addData(geojsonFearute);
+
+        document.getElementById('point_longitude').value = e.latlng.lng;
+        document.getElementById('point_latitude').value = e.latlng.lat;
+    }
+
+    map.on('click', onMapClick);
+
+    //  ToDo: show points on map when checked
+
+</script>

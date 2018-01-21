@@ -29,6 +29,7 @@ class User < ApplicationRecord
 
   has_many :trips, dependent: :destroy
   has_many :points
+  has_many :paths
 
   # User methods
 
