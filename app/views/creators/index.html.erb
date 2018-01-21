@@ -1,0 +1,18 @@
+<% provide(:title, 'All users') %>
+
+<div class="row">
+
+  <div class="buttons">
+    <%= button_to "Points", create_points_path,
+                  method: :get, class: "point-button btn btn-primary", id: "#{@points_id}" %>
+    <%= button_to "Paths", create_paths_path,
+                  method: :get, class: "path-button btn btn-primary", id: "#{@paths_id}" %>
+  </div>
+
+  <% if @active == 'points' %>
+    <%= render 'points' %>
+  <% elsif @active == 'paths' %>
+    <%= render 'paths' %>
+  <% end %>
+
+</div>

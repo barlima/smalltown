@@ -22,11 +22,20 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  post   '/points',  to: 'creator#create'
-
   resources :users
   resources :trips
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :creator,             only: [:index, :edit]
+
+  # ####### #
+  # Creator #
+  # ####### #
+
+  resources :points,              only: [:destroy, :create]
+  resources :paths,               only: [:destroy, :create]
+
+  # post   '/points',        to: 'creators#create_point'
+  # post   '/paths',         to: 'creators#create_path'
+  get    '/create_points', to: 'creators#new_point'
+  get    '/create_paths',  to: 'creators#new_path'
 
 end

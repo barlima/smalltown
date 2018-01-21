@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117173402) do
+ActiveRecord::Schema.define(version: 20180121102308) do
+
+  create_table "path_orders", force: :cascade do |t|
+    t.integer "position"
+    t.integer "path_id"
+    t.integer "point_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["path_id"], name: "index_path_orders_on_path_id"
+    t.index ["point_id"], name: "index_path_orders_on_point_id"
+  end
+
+  create_table "paths", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_paths_on_user_id"
+  end
 
   create_table "points", force: :cascade do |t|
     t.string "name"
@@ -48,7 +67,7 @@ ActiveRecord::Schema.define(version: 20180117173402) do
     t.boolean "admin", default: false
     t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.boolean "creator", default: false
+    t.boolean "creators", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
