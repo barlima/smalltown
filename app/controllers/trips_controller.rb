@@ -16,20 +16,33 @@ class TripsController < ApplicationController
     @trip = @user.trips.new
   end
 
+  def details
+    @trip = Trip.find(params[:id])
+  end
+
   def edit
+    @user = current_user
+    @trip = Trip.find(params[:id])
   end
 
   def create
     @trip = current_user.trips.create(trip_params)
     if @trip.save
-      # ToDo: Redirect to JS page
-      redirect_to '#'
+      redirect_to controller: 'trips', action: 'details', id: @trip.id
     else
+      flash[:danger] = 'Cannot create the trip'
       render 'new'
     end
   end
 
   def update
+    @trip = Trip.find(params[:id])
+    if @trip.update_attributes(trip_params)
+      redirect_to controller: 'trips', action: 'details', id: @trip.id
+    else
+      flash[:danger] = 'Cannot update the trip'
+      render 'index'
+    end
   end
 
   def destroy

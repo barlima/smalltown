@@ -23,8 +23,12 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   resources :users
-  resources :trips
   resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :trips do
+    member do
+      get '/details', to: 'trips#details'
+    end
+  end
 
   # ####### #
   # Creator #
