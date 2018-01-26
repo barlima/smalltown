@@ -33,6 +33,9 @@ $green: #008000;
 
 .points-table {
   width: 90%;
+}
+
+.default-table {
   text-align: center;
   position: center;
   margin-right: auto;
@@ -50,6 +53,10 @@ $green: #008000;
       background-color: #f2f2f2;
     }
   }
+}
+
+td.small {
+  width: 40px;
 }
 
 .row-odd {

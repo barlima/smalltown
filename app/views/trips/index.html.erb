@@ -9,7 +9,7 @@
     <% if @trips.empty? %>
       <h1>You have no trips :(</h1>
     <% else %>
-      <table class="points-table">
+      <table class="default-table trips-table">
         <tr>
           <th></th>
           <th>Name</th>
@@ -23,7 +23,7 @@
               <td><%= trip.name %></td>
               <td><%= trip.start_date.to_date %></td>
               <td><%= trip.end_date.to_date %></td>
-              <td>
+              <td class="small">
                 <%= link_to edit_trip_path(trip.id) do %>
                   <i class="glyphicon glyphicon-wrench"></i>
                 <% end %>

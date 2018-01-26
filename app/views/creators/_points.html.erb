@@ -9,7 +9,7 @@
 </div>
 
 <% if @points.any? %>
-  <table class="points-table">
+  <table class="default-table points-table">
     <tr>
       <th>Name</th>
       <th>Longitude</th>
@@ -33,7 +33,7 @@
           <td><%= point.category %></td>
           <td><%= point.rating %></td>
           <td><%= check_box_tag('show_on_map', point.id)%></td>
-          <td>
+          <td class="small">
             <!-- ToDo: Make glyphicons work -->
             <%= link_to '#' do %>
               <i class="glyphicon glyphicon-wrench"></i>

@@ -1,6 +1,4 @@
-// Place all the styles related to the Trips controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
 
 .index-new-trip {
   display: inline;
@@ -9,5 +7,17 @@
 
   input {
     width: 100px;
+  }
+}
+
+.trips-table {
+  width: 90%;
+
+  th, td {
+    padding: 5px;
+  }
+
+  th {
+    border-bottom: orangered solid 1px;
   }
 }
