@@ -1,0 +1,14 @@
+<% provide(:title, 'Buy guides') %>
+
+<div class="row">
+
+  <div class="buttons">
+    <%= button_to "List", guides_path, params: {type: 'list'},
+                  method: :get, class: "list-button btn btn-primary", id: "#{@list_id}" %>
+    <%= button_to "Show on Map", guides_path, params: {type: 'map'},
+                  method: :get, class: "show-on-map-button btn btn-primary", id: "#{@show_map_id}" %>
+  </div>
+
+  <%= render "#{@active}" %>
+
+</div>

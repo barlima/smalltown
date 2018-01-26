@@ -3,6 +3,7 @@ class Point < ApplicationRecord
   # References
 
   belongs_to :user, optional: true
+  belongs_to :guide, optional: true
   has_many :path_order
 
   # Validators

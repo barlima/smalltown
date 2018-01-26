@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180121102308) do
+ActiveRecord::Schema.define(version: 20180126162514) do
+
+  create_table "guides", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.string "region"
+    t.string "city"
+    t.datetime "published_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_guides_on_user_id"
+  end
 
   create_table "path_orders", force: :cascade do |t|
     t.integer "position"
@@ -28,6 +40,8 @@ ActiveRecord::Schema.define(version: 20180121102308) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "guide_id"
+    t.index ["guide_id"], name: "index_paths_on_guide_id"
     t.index ["user_id"], name: "index_paths_on_user_id"
   end
 
@@ -43,6 +57,8 @@ ActiveRecord::Schema.define(version: 20180121102308) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "guide_id"
+    t.index ["guide_id"], name: "index_points_on_guide_id"
     t.index ["user_id"], name: "index_points_on_user_id"
   end
 
@@ -67,7 +83,7 @@ ActiveRecord::Schema.define(version: 20180121102308) do
     t.boolean "admin", default: false
     t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.boolean "creators", default: false
+    t.boolean "creator", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
