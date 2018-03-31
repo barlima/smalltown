@@ -30,6 +30,13 @@ Rails.application.routes.draw do
     end
   end
 
+  # ###### #
+  # Guides #
+  # ###### #
+
+  resources :guides
+  get '/my_guides', to: 'guides#user'
+
   # ####### #
   # Creator #
   # ####### #
