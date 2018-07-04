@@ -1,5 +1,22 @@
 
-.list-button {
+$green: #008000;
+
+li.active {
+  // border: 1px solid $green;
+  border-radius: 8px 0 0 8px !important;
+  background-color: white !important;
+}
+
+li.active > a {
+  color: $green !important;
+
+  &:hover {
+    color: white !important;
+  }
+}
+
+li.list-button {
+  background-color: $green;
   width: 50%;
   display: inline;
   float: left;
@@ -7,10 +24,39 @@
 }
 
 .show-on-map-button {
+  background-color: $green;
   width: 50%;
   display: inline;
   float: left;
   border-radius: 0 8px 8px 0 !important;
+
+  &:hover {
+    background-color: darkgreen;
+  }
+}
+
+#list-tab-button {
+  border-radius: 8px 0 0 8px !important;
+  border: 1px solid $green;
+  color: white;
+
+  &:hover {
+    background-color: darkgreen;
+    color: white;
+    border-radius: 8px 0 0 8px !important;
+  }
+}
+
+#map-tab-button {
+  border-radius: 0 8px 8px 0 !important;
+  border: 1px solid $green;
+  color: white;
+
+  &:hover {
+    background-color: darkgreen;
+    color: white;
+    border-radius: 0 8px 8px 0 !important;
+  }
 }
 
 li #orange-button {
