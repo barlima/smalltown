@@ -44,9 +44,6 @@ Rails.application.routes.draw do
   resources :points,              only: [:destroy, :create]
   resources :paths,               only: [:destroy, :create]
 
-  # post   '/points',        to: 'creators#create_point'
-  # post   '/paths',         to: 'creators#create_path'
-  get    '/create_points', to: 'creators#new_point'
-  get    '/create_paths',  to: 'creators#new_path'
+  resources :creators,             only: [:index, :edit]
 
 end

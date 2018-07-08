@@ -2,17 +2,24 @@
 
 <div class="row">
 
-  <div class="buttons">
-    <%= button_to "Points", create_points_path,
-                  method: :get, class: "point-button btn btn-primary", id: "#{@points_id}" %>
-    <%= button_to "Paths", create_paths_path,
-                  method: :get, class: "path-button btn btn-primary", id: "#{@paths_id}" %>
-  </div>
+  <div class="container">
+    <ul class="nav buttons">
+      <li class="active list-button">
+         <a data-toggle="tab" id="list-tab-button" href="#points">Points</a>
+      </li>
+      <li class="show-on-map-button">
+        <a data-toggle="tab" id="map-tab-button" href="#paths">Paths</a>
+      </li>
+    </ul>
 
-  <% if @active == 'points' %>
-    <%= render 'points' %>
-  <% elsif @active == 'paths' %>
-    <%= render 'paths' %>
-  <% end %>
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="points">
+        <%= render 'points' %>
+      </div>
+      <div class="tab-pane fade" id="paths">
+        <%= render 'paths' %>
+      </div>
+    </div>
+  </div>
 
 </div>

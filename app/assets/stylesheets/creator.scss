@@ -19,7 +19,17 @@ $green: #008000;
   min-height: 500px;
 }
 
+.map-paths {
+  background-color: green;
+  min-height: 500px;
+}
+
 #map {
+  position: relative;
+  width: 100%;
+}
+
+#map-paths {
   position: relative;
   width: 100%;
 }
