@@ -4,22 +4,41 @@
 
   <div class="container">
     <ul class="nav buttons">
-      <li class="active list-button">
-         <a data-toggle="tab" id="list-tab-button" href="#points">Points</a>
+      <li class="<%= points_active %> list-button">
+        <a data-toggle="tab"
+           onclick="setActiveTabPoints()"
+           id="list-tab-button"
+           href="#points">
+           Points
+         </a>
       </li>
-      <li class="show-on-map-button">
-        <a data-toggle="tab" id="map-tab-button" href="#paths">Paths</a>
+      <li class="<%= paths_active %> show-on-map-button">
+        <a data-toggle="tab"
+           onclick="setActiveTabPaths()"
+           id="map-tab-button"
+           href="#paths">
+           Paths
+         </a>
       </li>
     </ul>
 
     <div class="tab-content">
-      <div class="tab-pane fade in active" id="points">
+      <div class="tab-pane fade <%= points_active %>" id="points">
         <%= render 'points' %>
       </div>
-      <div class="tab-pane fade" id="paths">
+      <div class="tab-pane fade <%= paths_active %>" id="paths">
         <%= render 'paths' %>
       </div>
     </div>
   </div>
-
 </div>
+
+<script type="text/javascript">
+  function setActiveTabPaths() {
+    document.cookie = "active_tab=paths";
+  }
+
+  function setActiveTabPoints() {
+    document.cookie = "active_tab=points";
+  }
+</script>
