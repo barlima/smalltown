@@ -3,20 +3,26 @@ $green: #008000;
 
 li.active {
   // border: 1px solid $green;
-  border-radius: 8px 0 0 8px !important;
-  background-color: white !important;
+  // border-radius: 8px 0 0 8px !important;
+  // background-color: white !important;
+  background-color: $green !important;
 }
 
 li.active > a {
-  color: $green !important;
+  color: white !important;
 
   &:hover {
     color: white !important;
   }
 }
 
+.nav > li > a:focus {
+  background-color: inherit !important;
+}
+
 li.list-button {
-  background-color: $green;
+  // background-color: $green;
+  background-color: white;
   width: 50%;
   display: inline;
   float: left;
@@ -24,7 +30,8 @@ li.list-button {
 }
 
 .show-on-map-button {
-  background-color: $green;
+  // background-color: $green;
+  background-color: white;
   width: 50%;
   display: inline;
   float: left;
@@ -38,7 +45,7 @@ li.list-button {
 #list-tab-button {
   border-radius: 8px 0 0 8px !important;
   border: 1px solid $green;
-  color: white;
+  color: darkgreen;
 
   &:hover {
     background-color: darkgreen;
@@ -50,7 +57,7 @@ li.list-button {
 #map-tab-button {
   border-radius: 0 8px 8px 0 !important;
   border: 1px solid $green;
-  color: white;
+  color: darkgreen;
 
   &:hover {
     background-color: darkgreen;

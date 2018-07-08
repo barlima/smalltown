@@ -2,20 +2,11 @@
 
 <div class="row">
 
-  <!-- <div class="buttons">
-    <%= button_to "List", guides_path, params: {type: 'list'},
-                  method: :get, class: "list-button btn btn-primary", id: "#{@list_id}" %>
-    <%= button_to "Show on Map", guides_path, params: {type: 'map'},
-                  method: :get, class: "show-on-map-button btn btn-primary", id: "#{@show_map_id}" %>
-  </div> -->
-
   <div class="container">
     <ul class="nav buttons">
-      <!-- <li class="active list-button btn btn-primary", id="list-tab-button"> -->
       <li class="active list-button">
          <a data-toggle="tab" id="list-tab-button" href="#list">List</a>
       </li>
-      <!-- <li class="show-on-map-button btn btn-primary", id="map-tab-button"> -->
       <li class="show-on-map-button">
         <a data-toggle="tab" id="map-tab-button" href="#map">Show on Map</a>
       </li>
