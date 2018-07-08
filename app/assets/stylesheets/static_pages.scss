@@ -5,6 +5,7 @@
 
 $gray-medium-light: #eaeaea;
 $green: #008000;
+$hoverorange: #e02500;
 
 /* header */
 
@@ -36,10 +37,12 @@ $green: #008000;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  text-shadow: 2px 2px 4px #000000;
 
   &:hover {
     color: #fff;
     text-decoration: none;
+    color: orangered;
   }
 }
 
